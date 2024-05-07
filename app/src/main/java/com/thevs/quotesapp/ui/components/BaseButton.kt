@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -34,11 +34,17 @@ fun BaseButton(
         )
     ) {
         icon?.let {
-            Icon(
-                imageVector = Icons.Default.Refresh,
-                contentDescription = null,
-                modifier = Modifier.size(ButtonDefaults.IconSize)
-            )
+            when (icon) {
+                "Refresh" -> Icons.Default.Refresh
+                "ArrowForward" -> Icons.Default.ArrowForward
+                else -> null
+            }?.let { it1 ->
+                Icon(
+                    imageVector = it1,
+                    contentDescription = null,
+                    modifier = Modifier.size(ButtonDefaults.IconSize)
+                )
+            }
             Spacer(Modifier.size(ButtonDefaults.IconSpacing))
         }
         Text(
@@ -47,6 +53,7 @@ fun BaseButton(
         )
     }
 }
+
 
 @Preview
 @Composable
