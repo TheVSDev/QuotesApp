@@ -31,7 +31,7 @@ object QuotesAPI {
 
     suspend fun loadQuotes(count: Int): List<QuoteBean> {
         return withContext(Dispatchers.IO) {
-            val apiKey = "50e41f1dc6mshe5eb91a68efba7fp14e399jsn64be57b5266a"
+            val apiKey = "392a43b45cmshb17b29b6b2511dbp129532jsn7446104dfd28"
             val host = "famous-quotes4.p.rapidapi.com"
             val url = "https://famous-quotes4.p.rapidapi.com/random?category=all&count=$count"
             val json = sendGet(url, apiKey, host)
