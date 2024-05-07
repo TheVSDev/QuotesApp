@@ -29,6 +29,13 @@ fun HomeScreen(viewModel: MainViewModel) {
             QuoteItem(quote, viewModel)
             Spacer(modifier = Modifier.height(16.dp))
         }
+        Spacer(modifier = Modifier.weight(1f)) // Add a spacer to push the button to the bottom
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            BaseButton(onClick = { /* TODO */ }, "Categories")
+        }
     }
 }
 
