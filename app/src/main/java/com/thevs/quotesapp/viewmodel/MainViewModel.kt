@@ -13,7 +13,9 @@ class MainViewModel : ViewModel() {
 
     fun loadQuotes() {
         viewModelScope.launch {
-            _quotes.value = QuotesAPI.loadQuotes(1)
+            val newQuotes = QuotesAPI.loadQuotes(1)
+            _quotes.value = newQuotes
         }
     }
+
 }

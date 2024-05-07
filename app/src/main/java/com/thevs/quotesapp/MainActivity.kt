@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val viewModel: MainViewModel = viewModel()
                     viewModel.loadQuotes()
-                    HomeScreen(viewModel.quotes.value)
+                    HomeScreen(viewModel)
                 }
             }
         }
