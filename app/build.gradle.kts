@@ -51,6 +51,9 @@ android {
 
 dependencies {
 
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.+")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:+")
     implementation("com.squareup.okhttp3:okhttp:+")
     implementation("com.google.code.gson:gson:+")
     implementation(libs.androidx.core.ktx)
@@ -61,6 +64,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

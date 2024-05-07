@@ -4,6 +4,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 object QuotesAPI {
     val client = OkHttpClient()
@@ -27,20 +29,14 @@ object QuotesAPI {
         val category: String
     )
 
-    fun loadQuotes(count: Int): List<QuoteBean> {
-        val apiKey = "50e41f1dc6mshe5eb91a68efba7fp14e399jsn64be57b5266a"
-        val host = "famous-quotes4.p.rapidapi.com"
-        val url = "https://famous-quotes4.p.rapidapi.com/random?category=all&count=$count"
-        val json = sendGet(url, apiKey, host)
-        val type = object : TypeToken<List<QuoteBean>>() {}.type
-        return gson.fromJson(json, type)
-    }
-}
-
-fun main() {
-    val count = 1
-    val quotes = QuotesAPI.loadQuotes(count)
-    quotes.forEach { quote ->
-        println("Quote: $quote")
+    suspend fun loadQuotes(count: Int): List<QuoteBean> {
+        return withContext(Dispatchers.IO) {
+            val apiKey = "50e41f1dc6mshe5eb91a68efba7fp14e399jsn64be57b5266a"
+            val host = "famous-quotes4.p.rapidapi.com"
+            val url = "https://famous-quotes4.p.rapidapi.com/random?category=all&count=$count"
+            val json = sendGet(url, apiKey, host)
+            val type = object : TypeToken<List<QuoteBean>>() {}.type
+            gson.fromJson(json, type)
+        }
     }
 }
