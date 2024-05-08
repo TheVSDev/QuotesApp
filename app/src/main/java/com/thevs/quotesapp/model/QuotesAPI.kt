@@ -39,4 +39,15 @@ object QuotesAPI {
             gson.fromJson(json, type)
         }
     }
+
+    suspend fun loadQuoteCategories(): List<String> {
+        return withContext(Dispatchers.IO) {
+            val apiKey = "392a43b45cmshb17b29b6b2511dbp129532jsn7446104dfd28"
+            val host = "famous-quotes4.p.rapidapi.com"
+            val url = "https://famous-quotes4.p.rapidapi.com/"
+            val json = sendGet(url, apiKey, host)
+            val type = object : TypeToken<List<String>>() {}.type
+            gson.fromJson(json, type)
+        }
+    }
 }

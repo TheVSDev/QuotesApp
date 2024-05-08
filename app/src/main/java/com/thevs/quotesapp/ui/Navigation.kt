@@ -18,15 +18,15 @@ sealed class Routes(val route: String) {
 @Composable
 fun AppNavigation() {
     val navHostController = rememberNavController()
+    val viewModel: MainViewModel = viewModel()
 
     NavHost(navController = navHostController, startDestination = Routes.HomeScreen.route) {
         composable(Routes.HomeScreen.route) {
-            val viewModel: MainViewModel = viewModel()
             viewModel.loadQuotes()
             HomeScreen(viewModel, navHostController)
         }
         composable(Routes.CategoriesScreen.route) {
-            CategoriesScreen(navHostController)
+            CategoriesScreen(navHostController, viewModel)
         }
     }
 }
