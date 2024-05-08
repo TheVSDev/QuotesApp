@@ -51,6 +51,7 @@ android {
 
 dependencies {
 
+    implementation("androidx.navigation:navigation-compose:2.+")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.+")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:+")

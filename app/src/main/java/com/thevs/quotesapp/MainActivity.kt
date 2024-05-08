@@ -7,10 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.thevs.quotesapp.ui.screens.HomeScreen
 import com.thevs.quotesapp.ui.theme.QuotesAppTheme
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.thevs.quotesapp.viewmodel.MainViewModel
+import com.thevs.quotesapp.ui.AppNavigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +19,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: MainViewModel = viewModel()
-                    viewModel.loadQuotes()
-                    HomeScreen(viewModel)
+                    AppNavigation()
                 }
             }
         }
