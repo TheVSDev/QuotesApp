@@ -31,7 +31,7 @@ fun AppNavigation() {
             CategoriesScreen(navHostController, viewModel)
         }
         composable(Routes.RandomQuoteDetailsScreen.route) {
-            RandomQuoteDetailsScreen(navHostController)
+            RandomQuoteDetailsScreen(navHostController, viewModel)
         }
     }
 }

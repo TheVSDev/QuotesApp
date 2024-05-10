@@ -35,9 +35,9 @@ fun HomeScreen(viewModel: MainViewModel, navHostController: NavHostController) {
         Column(
             modifier = Modifier.fillMaxWidth(),
         ) {
-            BaseButton({ navHostController.navigate(Routes.CategoriesScreen.route) }, "Categories", "List")
-            Spacer(modifier = Modifier.height(11.dp))
             BaseButton({ navHostController.navigate(Routes.RandomQuoteDetailsScreen.route) }, "Quote Details", "ArrowForward")
+            Spacer(modifier = Modifier.height(11.dp))
+            BaseButton({ navHostController.navigate(Routes.CategoriesScreen.route) }, "Categories", "List")
         }
     }
 }
