@@ -9,25 +9,43 @@ import com.thevs.quotesapp.model.QuotesAPI
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
+    // States for storing ...
+    // ... quotes
     private val _quotes = mutableStateOf<List<QuoteBean>>(emptyList())
     val quotes: State<List<QuoteBean>> = _quotes
 
-    // State for storing categories
+    // ... categories
     private val _categories = mutableStateOf<List<String>>(emptyList())
     val categories: State<List<String>> = _categories
 
+    // ... error messages
+    private val _errorMessage = mutableStateOf<String?>(null)
+
+
+    // Functions for loading ...
+    // ... one quote
     fun loadQuotes() {
         viewModelScope.launch {
-            val newQuotes = QuotesAPI.loadQuotes(1)
-            _quotes.value = newQuotes
+            try {
+                val newQuotes = QuotesAPI.loadQuotes(1)
+                _quotes.value = newQuotes
+                _errorMessage.value = null // Reset error message if previous attempt was successful
+            } catch (e: Exception) {
+                _errorMessage.value = "Failed to load quotes: ${e.message}"
+            }
         }
     }
 
-    // Function to load categories
+    // ... categories
     fun loadCategories() {
         viewModelScope.launch {
-            val categories = QuotesAPI.loadQuoteCategories()
-            _categories.value = categories
+            try {
+                val categories = QuotesAPI.loadQuoteCategories()
+                _categories.value = categories
+                _errorMessage.value = null // Reset error message if previous attempt was successful
+            } catch (e: Exception) {
+                _errorMessage.value = "Failed to load categories: ${e.message}"
+            }
         }
     }
 }
