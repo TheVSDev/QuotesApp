@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.thevs.quotesapp.model.QuotesAPI
+import com.thevs.quotesapp.model.QuoteBean
 import com.thevs.quotesapp.ui.Routes
 import com.thevs.quotesapp.ui.components.Title
 import com.thevs.quotesapp.ui.components.BaseButton
@@ -44,7 +44,7 @@ fun HomeScreen(viewModel: MainViewModel, navHostController: NavHostController) {
 
 
 @Composable
-fun QuoteItem(quote: QuotesAPI.QuoteBean, viewModel: MainViewModel) {
+fun QuoteItem(quote: QuoteBean, viewModel: MainViewModel) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

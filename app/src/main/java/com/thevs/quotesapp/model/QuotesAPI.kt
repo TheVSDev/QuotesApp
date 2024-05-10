@@ -22,13 +22,6 @@ object QuotesAPI {
         }
     }
 
-    data class QuoteBean(
-        val id: Int,
-        val text: String,
-        val author: String,
-        val category: String
-    )
-
     suspend fun loadQuotes(count: Int): List<QuoteBean> {
         return withContext(Dispatchers.IO) {
             val apiKey = "392a43b45cmshb17b29b6b2511dbp129532jsn7446104dfd28"
