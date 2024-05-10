@@ -39,12 +39,13 @@ fun CategoriesScreen(navController: NavHostController, viewModel: MainViewModel)
         Spacer(modifier = Modifier.height(16.dp))
         Title(title = "List of categories")
         LazyColumn {
-            itemsIndexed(categories) { index, category ->
+            itemsIndexed(categories) { _, category ->
                 Text(
-                    text = category.capitalize(),
+                    text = category.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() },
                     modifier = Modifier.padding(8.dp)
                 )
             }
         }
+
     }
 }
