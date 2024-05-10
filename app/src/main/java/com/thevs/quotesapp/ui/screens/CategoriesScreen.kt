@@ -38,6 +38,7 @@ fun CategoriesScreen(navController: NavHostController, viewModel: MainViewModel)
         }
         Spacer(modifier = Modifier.height(16.dp))
         Title(title = "List of categories")
+        Spacer(modifier = Modifier.height(20.dp))
         LazyColumn {
             itemsIndexed(categories) { _, category ->
                 Text(

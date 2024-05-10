@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -31,11 +32,11 @@ fun HomeScreen(viewModel: MainViewModel, navHostController: NavHostController) {
             Spacer(modifier = Modifier.height(16.dp))
         }
         Spacer(modifier = Modifier.weight(1f))
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
         ) {
-            BaseButton({ navHostController.navigate(Routes.CategoriesScreen.route) }, "Categories")
+            BaseButton({ navHostController.navigate(Routes.CategoriesScreen.route) }, "Categories", "List")
+            Spacer(modifier = Modifier.height(11.dp))
             BaseButton({ navHostController.navigate(Routes.RandomQuoteDetailsScreen.route) }, "Quote Details", "ArrowForward")
         }
     }
@@ -54,12 +55,20 @@ fun QuoteItem(quote: QuotesAPI.QuoteBean, viewModel: MainViewModel) {
             .padding(16.dp)
     ) {
         Text(
-            text = "${quote.text} - ${quote.author}",
+            text = quote.text,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(15.dp))
+        Text(
+            text = "- ${quote.author}",
+            textAlign = TextAlign.Right,
+            modifier = Modifier.fillMaxWidth(),
+            color = Color.White,
+            fontStyle = FontStyle.Italic
+        )
+        Spacer(modifier = Modifier.height(10.dp))
         Row{
             BaseButton({ viewModel.loadQuotes() }, "", "Refresh")
         }

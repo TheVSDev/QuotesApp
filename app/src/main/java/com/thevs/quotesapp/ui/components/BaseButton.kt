@@ -38,6 +38,7 @@ fun BaseButton(
                 "Refresh" -> Icons.Default.Refresh
                 "ArrowForward" -> Icons.Default.ArrowForward
                 "ArrowBack" -> Icons.Default.ArrowBack
+                "List" -> Icons.Default.List
                 else -> null
             }?.let { it1 ->
                 Icon(
