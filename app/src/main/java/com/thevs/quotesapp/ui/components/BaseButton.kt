@@ -61,7 +61,7 @@ fun BaseButton(
 @Composable
 fun PreviewBaseButton() {
     BaseButton(
-        onClick = { /*TODO*/ },
+        onClick = { /**/ },
         buttonText = "Refresh",
     )
 }
