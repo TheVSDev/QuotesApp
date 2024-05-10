@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.thevs.quotesapp.ui.screens.CategoriesScreen
+import com.thevs.quotesapp.ui.screens.RandomQuoteDetailsScreen
 import com.thevs.quotesapp.ui.screens.HomeScreen
 import com.thevs.quotesapp.viewmodel.MainViewModel
 
@@ -13,6 +14,7 @@ import com.thevs.quotesapp.viewmodel.MainViewModel
 sealed class Routes(val route: String) {
     data object HomeScreen : Routes("homeScreen")
     data object CategoriesScreen : Routes("categoriesScreen")
+    data object RandomQuoteDetailsScreen : Routes("randomQuoteDetailsScreen")
 }
 
 @Composable
@@ -27,6 +29,9 @@ fun AppNavigation() {
         }
         composable(Routes.CategoriesScreen.route) {
             CategoriesScreen(navHostController, viewModel)
+        }
+        composable(Routes.RandomQuoteDetailsScreen.route) {
+            RandomQuoteDetailsScreen(navHostController)
         }
     }
 }

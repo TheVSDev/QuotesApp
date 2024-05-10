@@ -36,6 +36,7 @@ fun HomeScreen(viewModel: MainViewModel, navHostController: NavHostController) {
             horizontalArrangement = Arrangement.Center
         ) {
             BaseButton({ navHostController.navigate(Routes.CategoriesScreen.route) }, "Categories")
+            BaseButton({ navHostController.navigate(Routes.RandomQuoteDetailsScreen.route) }, "Quote Details", "ArrowForward")
         }
     }
 }
@@ -61,8 +62,6 @@ fun QuoteItem(quote: QuotesAPI.QuoteBean, viewModel: MainViewModel) {
         Spacer(modifier = Modifier.height(8.dp))
         Row{
             BaseButton({ viewModel.loadQuotes() }, "", "Refresh")
-            Spacer(modifier = Modifier.padding(16.dp))
-            BaseButton({ /* TODO */ }, "Quote Details", "ArrowForward")
         }
     }
 }
